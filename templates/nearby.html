@@ -2,10 +2,16 @@
 
 {% block content %}
 	
+		<h1>Nearby Hackers</h1>
+		<ul class="list-group">
 		{% for key, value in results.iteritems() %}
-		<ul>
-			<li>Name: {{ value['name'] }}</li>
-			<li>Email: {{ value['email'] }}</li>
-		</ul>
+			<li class="list-group-item">
+				<ul>
+					<li>Name: {{ value['name'] }}</li>
+					<li>Email: {{ value['email'] }}</li>
+					<li>Hackathon: {{ value['hacks'] }}</li>
+				</ul>
+			</li>
 		{%endfor%}
+		</ul>
 {% endblock %}
