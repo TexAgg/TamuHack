@@ -46,7 +46,7 @@ def login(Events=None):
 
 		print email
 		print hacks
-		return "done"
+		return render_template("return.html")
 	
 @app.route("/nearby")
 def nearby():
