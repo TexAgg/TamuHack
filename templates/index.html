@@ -1,19 +1,9 @@
-<!DOCTYPE HTML>
-<html>
+{% extends "layout.html" %}
 
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Test Form</title>
-</head>
-
-<body>
-<h1> Find a Team </h1>
-
-		<input type = "button" value = "Go Find A Team" onclick ="window.location.href='login';" >
-	<br>
-
-		<input type = "button" value = "View Team" onclick ="window.location.href='view';">
-
-</body>	
-
-</html>
+{% block content %}
+	<h1> Find a Team </h1>
+	<div class="btn-group">
+		<input class="btn btn-default" type="button" value="Go Find A Team" onclick="window.location.href='login';" ></input>
+		<input class="btn btn-default" type="button" value="View Team" onclick="window.location.href='view';"></input>
+	</div>
+{% endblock %}
