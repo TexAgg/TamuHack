@@ -48,7 +48,10 @@ def login(Events=None):
 		print hacks
 		return "done"
 	
-
+@app.route("/nearby")
+def nearby():
+	results = db.get("/users")
+	return render_template("nearby.html", results = results)
 
 
 if __name__ == "__main__":

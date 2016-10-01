@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+
+{% block content %}
+	
+		{% for key, value in results.iteritems() %}
+		<ul>
+			<li>Name: {{ value['name'] }}</li>
+			<li>Email: {{ value['email'] }}</li>
+		</ul>
+		{%endfor%}
+{% endblock %}
