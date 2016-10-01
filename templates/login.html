@@ -19,7 +19,17 @@
 			Skills:<textarea class="form-control" name="Skills" placeholder="Coder"></textarea>
 		</div>
 		<div class="form-group">
-			Hackathon:<textarea class="form-control" name="Hackathon" placeholder="Hackathons"></textarea>
+			<div class="dropdown">
+				<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Hackathons
+					<span class="caret"></span></button>
+					{% block body %}
+					<ul class="dropdown-menu">
+						{% for hackathon in Events %}
+						<li><a href ="">{{hackathon.getText()}}</a></li>
+						{% endfor %}
+						</ul>
+					{% endblock %}
+			</div>
 		</div>
 		<div class="form-group">
 			<input type="submit" value="Submit"></input>
