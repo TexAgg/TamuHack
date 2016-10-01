@@ -29,7 +29,7 @@
     <link href="/assets/application-d044be533ec3fb15134a9e1d0b4cccf6.css" media="all" rel="stylesheet" />
 
   <meta content="authenticity_token" name="csrf-param" />
-<meta content="ggHlEHs9fPl4UT7U+ATkf+QaO8Xx73XT9nF2m0a7Olk=" name="csrf-token" />
+<meta content="IHZhMkbdaJ4akdvJAkSYC3z8HBUoYTd4rcmY9/n8bVg=" name="csrf-token" />
 
   <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>

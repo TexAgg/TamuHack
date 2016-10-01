@@ -4,6 +4,7 @@ from flask import Flask,request,render_template
 import requests
 from firebase import firebase
 import json
+from hackgetter import hackgetter
 
 from flask import Flask
 app = Flask(__name__)
@@ -15,10 +16,15 @@ db = firebase("https://tamuhack-62a7e.firebaseio.com/", "9aPTl5HogP4eHdKHdNhRWqi
 @app.route("/index")
 def hello():
     return render_template("index.html")
+
+
 @app.route("/login", methods = ['GET','POST'])
-def login():
+def login(Events=None):
 	if request.method == "GET":
-		return render_template('login.html')
+		c = hackgetter()
+		c.download_html("https://mlh.io/seasons/na-2017/events")
+		events = c.get_hackathons()
+		return render_template('login.html',Events=events)
 	elif request.method == "POST":
 		name = request.form['FullName']
 		email = request.form['Email']
