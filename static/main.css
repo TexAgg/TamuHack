@@ -12,14 +12,17 @@
 
 .jumbotron {
     margin-bottom: 0;
-    padding: 0.8em 0.6em;
-    /*background-color: var(--main-color);
-    color: var(--secondary-color);*/
+    padding: 1em 1em;
+    text-align: center;
+    background-color: #D80990 ;
+    /*color: var(--secondary-color);*/
 }
-
+.navbar navbar-default{
+	background-color: #3f20cb ;
+}
 body {
-    /*background-color: var(--secondary-color);
-    color: var(--secondary-color);*/
+    background-color: #7c15c7 ;
+    /*color: var(--secondary-color);*/
     font-family: "Gotham Rounded A";
 }
 
