@@ -7,6 +7,7 @@ import json
 from hackgetter import hackgetter
 import math
 import hashlib
+from sender import sender
 
 from flask import Flask
 app = Flask(__name__)
@@ -51,6 +52,7 @@ def login(Events=None):
 
 		print email
 		print hacks
+		calculateall()
 		return render_template("return.html")
 	
 @app.route("/nearby", methods = ['GET'])
@@ -102,12 +104,36 @@ def separate():
 
 def match(groups):
 	print " "
-	match2(groups.values()[0])
+	for x in range(len(groups)):
+		match2(groups.values()[x])
 	
-def match2(listofdicks):
+def match2(lod):
 	print'\n'
-	grouped = []
-	print listofdicks
+	for x in range(int(math.ceil(float(len(lod))/4))):
+		a = {
+		    "Names":[ lod[0]['name'],lod[1]['name'],lod[2]['name'],lod[3]['name']],
+		    "Emails": [ lod[0]['email'],lod[1]['email'],lod[2]['email'],lod[3]['email']]
+		}
+
+		db.put("/users/"+lod[0]['hacks']+"/"+hashlib.sha224(lod[0]['email']).hexdigest()+"/", payload = json.dumps({"members":a}))
+		db.put("/users/"+lod[1]['hacks']+"/"+hashlib.sha224(lod[1]['email']).hexdigest()+"/", payload = json.dumps({"members":a}))
+		db.put("/users/"+lod[2]['hacks']+"/"+hashlib.sha224(lod[2]['email']).hexdigest()+"/", payload = json.dumps({"members":a}))
+		db.put("/users/"+lod[3]['hacks']+"/"+hashlib.sha224(lod[3]['email']).hexdigest()+"/", payload = json.dumps({"members":a}))
+
+		b = lod[0]['name']+"   "+lod[0]['email']+"\n"+lod[1]['name']+"   "+lod[1]['email']+"\n"+lod[2]['name']+"   "+lod[2]['email']+"\n"+lod[3]['name']+"   "+lod[3]['email']+"\n"
+		
+
+		c = sender("Here is your team: \n"+b,lod[0]['email'])
+		c.sendEmail()
+		c = sender("Here is your team: \n"+b,lod[1]['email'])
+		c.sendEmail()
+		c = sender("Here is your team: \n"+b,lod[2]['email'])
+		c.sendEmail()
+		c = sender("Here is your team: \n"+b,lod[3]['email'])
+		c.sendEmail()
+
+	for x in range (0,4):
+		lod.pop(0)
 
 if __name__ == "__main__":
 	#db.put("/users/HackTX/-KT2jHBWPPb1_0uXMD6-/", payload = json.dumps({"members":"gigem@gmail,com \n asddssd"}))
