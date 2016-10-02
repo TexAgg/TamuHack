@@ -2,7 +2,9 @@
 
 {% block content %}
 	<form method="GET">
-		<input list="Hackathon" name="Hackathon"></input>
+		<label for='choose'>Which hackathon are you at?</label>
+		<br>
+		<input id='choose' list="Hackathon" name="Hackathon"></input>
 		{% block body %}
 		<datalist id = "Hackathon">
 		{% for hackathon in Events %}
