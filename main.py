@@ -6,6 +6,7 @@ from firebase import firebase
 import json
 from hackgetter import hackgetter
 import math
+import hashlib
 
 from flask import Flask
 app = Flask(__name__)
@@ -45,7 +46,8 @@ def login(Events=None):
 			"full":False
 		}
 
-		db.push(path = "/users/" + hacks, payload = json.dumps(query))
+		# hash the email adress to get a valid json key
+		db.pat(path = "/users/" + hashlib.sha224(email).hexdigest(), payload = json.dumps(query))
 
 		print email
 		print hacks
