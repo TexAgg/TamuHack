@@ -26,3 +26,7 @@ The design and the concept.
 
 ## What's next for Hackr
 Adding a login system and profiles, and improving the matching algorithm.
+
+---
+
+Check us out on [DevPost](http://devpost.com/software/hackr-57zcwj).
