@@ -108,5 +108,7 @@ def match2(listofdicks):
 	print listofdicks
 
 if __name__ == "__main__":
-	calculateall()
+	#db.put("/users/HackTX/-KT2jHBWPPb1_0uXMD6-/", payload = json.dumps({"members":"gigem@gmail,com \n asddssd"}))
+	#print "hi"
+	app.run()
 	

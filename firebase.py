@@ -12,6 +12,10 @@ class firebase:
 	def push(self, path, payload):
 		requests.request("POST", self.url + path + ".json", params={"auth":self.secret}, data = payload)
 
+	def put(self, path, payload):
+		r = requests.request("PATCH", self.url + path + ".json", params={"auth":self.secret}, data = payload, headers={'content-type': "application/json"})
+		print r.text
+
 	# Return a dict from a path in the database.
 	def get(self, path):
 		r = requests.request("GET", self.url + path + ".json", params={"auth":self.secret})
