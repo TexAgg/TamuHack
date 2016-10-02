@@ -47,7 +47,7 @@ def login(Events=None):
 		}
 
 		# hash the email adress to get a valid json key
-		db.pat(path = "/users/" + hashlib.sha224(email).hexdigest(), payload = json.dumps(query))
+		db.pat(path = "/users/" + hacks + "/" + hashlib.sha224(email).hexdigest(), payload = json.dumps(query))
 
 		print email
 		print hacks
