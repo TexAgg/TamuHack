@@ -39,7 +39,9 @@ def login(Events=None):
 			"phone": phone,
 			"password": password,
 			"skills": skills,
-			"hacks": hacks
+			"hacks": hacks,
+			"members":1,
+			"full":False
 		}
 
 		db.push(path = "/users/" + hacks, payload = json.dumps(query))
@@ -61,7 +63,43 @@ def nearby():
 		events = c.get_hackathons()
 		return render_template("choose_hack.html", Events=events)
 
+def calculateall():
+	match(separate())
 
+def separate():
+	keys = []
+	groups ={}
+	users = db.get("/users/")
+
+	#this is what u do
+	for key,value in users.iteritems():
+		keys.append(key)
+		
+
+	for k in keys:
+		for key,value in users[k].iteritems():
+			groups[value['hacks']] = []
+	for k in keys:
+		for key,value in users[k].iteritems():
+			for key1, value1 in groups.iteritems():
+				if (key1 == value['hacks']):
+					print key1
+					groups[key1].append(value)
+	
+					
+	for key,value in groups.iteritems():
+		print groups[key] 		
+
+	'''for key,value in groups.iteritems():
+		print key
+		print value
+	'''
+	return groups
+
+def match(groups):
+	pass
+	
 
 if __name__ == "__main__":
-    app.run()
+	app.run()
+	
