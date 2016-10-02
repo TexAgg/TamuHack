@@ -1,5 +1,24 @@
+:root {
+    --main-color: #002966;
+    --secondary-color: #80b3ff;
+}
+
 .centered {
     /* https://github.com/TexAgg/Minesweeper/blob/master/src/styles/main.css#L38 */
-	margin: auto;
+    margin: auto;
     width: 50%;
+    text-align: center;
+}
+
+.jumbotron {
+    margin-bottom: 0;
+    padding: 0.8em 0.6em;
+    /*background-color: var(--main-color);
+    color: var(--secondary-color);*/
+}
+
+body {
+    /*background-color: var(--secondary-color);
+    color: var(--secondary-color);*/
+    font-family: "Gotham Rounded A";
 }
