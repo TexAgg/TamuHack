@@ -32,27 +32,24 @@ def login(Events=None):
 		name = request.form['FullName']
 		email = request.form['Email']
 		phone = request.form['Phone']
-		password = request.form['Password']
 		skills = request.form['Skills']
 		hacks = request.form['Hackathon']
-
 		query = {
 			"name": name,
 			"email": email,
 			"phone": phone,
-			"password": password,
 			"skills": skills,
 			"hacks": hacks,
 			"members":"",
 			"full":False
 		}
-
+		print "f"
 		# hash the email adress to get a valid json key
 		db.pat(path = "/users/" + hacks + "/" + hashlib.sha224(email).hexdigest(), payload = json.dumps(query))
 
 		print email
 		print hacks
-		calculateall()
+		#calculateall()
 		return render_template("return.html")
 
 @app.route("/view",methods = ['GET','POST'])
