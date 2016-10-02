@@ -42,16 +42,25 @@ def login(Events=None):
 			"hacks": hacks
 		}
 
-		db.push(path = "/users", payload = json.dumps(query))
+		db.push(path = "/users/" + hacks, payload = json.dumps(query))
 
 		print email
 		print hacks
 		return render_template("return.html")
 	
-@app.route("/nearby")
+@app.route("/nearby", methods = ['GET'])
 def nearby():
-	results = db.get("/users")
-	return render_template("nearby.html", results = results)
+	if "Hackathon" in request.args:
+		hacks = request.args.get('Hackathon')
+		results = db.get("/users/" + hacks)
+		return json.dumps(results)
+		#return render_template("nearby.html", results = results)
+	else:
+		c = hackgetter()
+		c.download_html("https://mlh.io/seasons/na-2017/events")
+		events = c.get_hackathons()
+		return render_template("choose_hack.html", Events=events)
+
 
 
 if __name__ == "__main__":

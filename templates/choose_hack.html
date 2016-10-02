@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+{% block content %}
+	<form method="GET">
+		<input list="Hackathon" name="Hackathon"></input>
+		{% block body %}
+		<datalist id = "Hackathon">
+		{% for hackathon in Events %}
+			<option value = "{{hackathon.getText()}}"></option>
+		{% endfor %}
+		</datalist>
+		<div class="form-group">
+			<input type="submit" value="Submit"></input>
+		</div>
+		{% endblock %}
+	</form>
+{% endblock %}
