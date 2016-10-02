@@ -4,7 +4,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<title>Hackr</title>
-	<link rel='icon' href="{{ url_for('static', filename='hackr.svg') }}"></link>
+	<link rel='icon' href="{{ url_for('static', filename='hackr.png') }}"></link>
 	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.3/jquery.min.js"></script>
 	<!-- Latest compiled and minified CSS -->
@@ -24,6 +24,11 @@
 			<h4>Find People to Hack with</h4>
 		</div>
 	</div>
+	<nav class="navbar navbar-default">
+		<div class="navbar-header">
+			<a class="navbar-brand" href="/"><img src="{{ url_for('static', filename='hackr.png') }}" height="32" weight="32"></img></a>
+		</div>
+	</nav>
 	<div id='main-wrapper' class='container'>
 		{% block content %}
 		{% endblock %}

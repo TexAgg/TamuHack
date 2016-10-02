@@ -2,4 +2,9 @@
     /* https://github.com/TexAgg/Minesweeper/blob/master/src/styles/main.css#L38 */
 	margin: auto;
     width: 50%;
+    text-align: center;
+}
+
+.jumbotron {
+	margin-bottom: 0;
 }
