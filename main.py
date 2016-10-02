@@ -53,8 +53,8 @@ def nearby():
 	if "Hackathon" in request.args:
 		hacks = request.args.get('Hackathon')
 		results = db.get("/users/" + hacks)
-		return json.dumps(results)
-		#return render_template("nearby.html", results = results)
+		#return json.dumps(results)
+		return render_template("nearby.html", results = results)
 	else:
 		c = hackgetter()
 		c.download_html("https://mlh.io/seasons/na-2017/events")

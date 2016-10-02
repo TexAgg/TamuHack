@@ -4,15 +4,19 @@
 	
 		<h1>Nearby Hackers</h1>
 		<ul class="list-group">
-		{% for key, value in results.iteritems() %}
-			<li class="list-group-item">
-				<ul>
-					<li>Name: {{ value['name'] }}</li>
-					<li>Email: {{ value['email'] }}</li>
-					<li>Hackathon: {{ value['hacks'] }}</li>
-					<li>Phone: {{ value['phone'] }}</li>
-				</ul>
-			</li>
-		{%endfor%}
+		{% if results is mapping %}
+			{% for key, value in results.iteritems() %}
+				<li class="list-group-item">
+					<ul>
+						<li>Name: {{ value['name'] }}</li>
+						<li>Email: {{ value['email'] }}</li>
+						<li>Hackathon: {{ value['hacks'] }}</li>
+						<li>Phone: {{ value['phone'] }}</li>
+					</ul>
+				</li>
+			{%endfor%}
+		{% else %}
+		None
+		{% endif %}
 		</ul>
 {% endblock %}
