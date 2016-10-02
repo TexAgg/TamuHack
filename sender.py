@@ -16,5 +16,5 @@ class sender:
 		print smtpObj.sendmail('hackrteam@gmail.com', self.__reciever__,'Subject:Team Made! \n'+self.__message__)
 
 if __name__ =="__main__":
-	c = sender("Hey this is an automated voice message please hang up and dial again, jk its fucking ur older brother you dumbass and im about to fucking win this hackathon","kevinzuang@gmail.com")
+	c = sender("Hey this is an automated voice message.","kevinzuang@gmail.com")
 	c.sendEmail()
