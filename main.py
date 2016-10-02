@@ -54,7 +54,22 @@ def login(Events=None):
 		print hacks
 		calculateall()
 		return render_template("return.html")
-	
+
+@app.route("/view",methods = ['GET','POST'])
+def view():
+	if request.method == "GET":
+		c = hackgetter()
+		c.download_html("https://mlh.io/seasons/na-2017/events")
+		events = c.get_hackathons()
+		return render_template('view.html',Events = events)
+	elif request.method == "POST":
+		email = request.form['Email']
+		hacks = request.form['Hackathon']
+		print email
+		print hacks
+		guy = db.get("/users/" +hacks+"/"+hashlib.sha224(email).hexdigest())
+		return render_template("team.html",Names =guy['members']['Names'] ,Emails =guy['members']['Emails'] )
+
 @app.route("/nearby", methods = ['GET'])
 def nearby():
 	if "Hackathon" in request.args:

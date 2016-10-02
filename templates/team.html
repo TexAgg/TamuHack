@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+
+{% block content %}
+	<h1> Your Team </h1>
+	<h2>Names:</h2>
+	{% for people in Names %}
+	<ul>{{people}}</ul>
+	{% endfor %}
+	<h2>Emails:</h2>
+	{% for email in Emails %}
+	<ul>{{email}}</ul>
+	{% endfor %}
+{% endblock %}

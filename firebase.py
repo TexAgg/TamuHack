@@ -23,3 +23,5 @@ class firebase:
 	def get(self, path):
 		r = requests.request("GET", self.url + path + ".json", params={"auth":self.secret})
 		return r.json()
+
+	
